@@ -9,6 +9,16 @@ function App() {
 
   const AddStrategy = (strategy) => {
 
+    // Only allow 4 most recent strategy submissions
+    let optionsListLength = optionsList.length;
+    // if length>3
+    if(optionsListLength > 3) {
+      // remove oldest strategy
+      optionsList.shift();
+      // set options list
+      setOptionsList(optionsList);
+    }
+
     // Add to optionsList in state
     const updatedOptionsList = [...optionsList, strategy];
     setOptionsList(updatedOptionsList);
