@@ -1,9 +1,18 @@
+import AddOptionStrategyForm from './components/AddOptionStrategyForm';
 import './App.css';
 
 function App() {
+
+  const AddStrategy = (strategy) => {
+    console.log(strategy);
+    // Add to optionsList in state
+    // use helper to calculate parameters for graph
+    // set graph options in state
+  }
+
   return (
     <div className="App">
-      <h1>TEST</h1>
+      <AddOptionStrategyForm handleInput={AddStrategy} />
     </div>
   );
 }
