@@ -5,8 +5,8 @@ function AddOptionStrategyForm({handleInput}) {
   const [strategy, setStrategy] = useState({
     optionType: '',
     strike: '',
-    premium: '',
-    quantity: ''
+    price: '',
+    quantity: '',
   })
 
   const handleSubmit = (e) => {
@@ -16,7 +16,7 @@ function AddOptionStrategyForm({handleInput}) {
     // Use behavior passed from props
     handleInput(strategy);
     // Reset state
-    setStrategy({ optionType: '', strike: '', premium: '', quantity: '' })
+    setStrategy({ optionType: '', strike: '', price: '', quantity: ''})
 
   }
 
@@ -25,15 +25,15 @@ function AddOptionStrategyForm({handleInput}) {
     const {name, value} = e.target;
 
     //update state
-    setStrategy({...strategy, [name]: value });
+    setStrategy({...strategy, [name]: value});
   }
   
   return (
     <form onSubmit={handleSubmit}>
         <input onChange={handleChange} placeholder="call or put" type="text" name="optionType" value={strategy.optionType} required />
         <input onChange={handleChange} placeholder="strike price" type="number" name="strike" value={strategy.strike} required />
-        <input onChange={handleChange} placeholder="premium paid" type="number" name="premium" value={strategy.premium} required />
-        <input onChange={handleChange} placeholder="quanity" type="number" name="quantity" value={strategy.quantity} required />
+        <input onChange={handleChange} placeholder="price paid" type="number" name="price" value={strategy.premium} required />
+        <input onChange={handleChange} placeholder="quantity" type="number" name="quantity" value={strategy.quantity} required />
         <button type='submit'>Submit Options Details</button>
     </form>
   )
